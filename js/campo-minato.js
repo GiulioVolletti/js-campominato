@@ -18,20 +18,24 @@ console.log(arrayNumeri.sort());
 var arrayUtente = [];
 var richiestaNumeri = 100 - 16;
 // test
-richiestaNumeri = 5;
-
-while (arrayUtente.length < richiestaNumeri) {
+// richiestaNumeri = 5;
+var perso = false;
+while (arrayUtente.length < richiestaNumeri && perso != true) {
   var numeriUtente = parseInt(prompt("inserisci numeri"));
   // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
-  if ( verifica(numeriUtente, arrayUtente) == false ) {
+  if ( verifica(numeriUtente, arrayNumeri) == false && verifica(numeriUtente, arrayUtente) == false ) {
     arrayUtente.push(numeriUtente);
+  } else {
+    alert("fine parita");
+    perso = true;
   }
 }
+// La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
+// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+alert("punteggio: " + arrayUtente.length)
 console.log(arrayUtente.sort());
 console.log("punteggio: ", arrayUtente.length);
 
-// La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
 
 //---------------------------------------
